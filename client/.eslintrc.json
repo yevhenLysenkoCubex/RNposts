@@ -1,0 +1,20 @@
+{
+   "root": true,
+   "parser": "@typescript-eslint/parser",
+   "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+   ],
+   "ignorePatterns": [".eslintrc.json"],
+   "plugins": ["react-native", "@typescript-eslint", "prettier"],
+   "rules": {
+      "prettier/prettier": ["error"],
+      "react-native/no-unused-styles": 2,
+      "react-native/split-platform-components": 2,
+      "react-native/no-inline-styles": "off",
+      "react-native/no-raw-text": "off",
+      "no-console": ["warn", { "allow": ["warn", "error"] }]
+   }
+}
