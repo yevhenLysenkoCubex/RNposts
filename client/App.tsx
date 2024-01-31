@@ -24,15 +24,15 @@ const loadFonts = async () => {
 };
 
 export default function App() {
-   const [isLoaded, setIsLoaded] = useState(false);
+   const [appIsReady, setAppIsReady] = useState(false);
 
    useEffect(() => {
       loadFonts().then(() => {
-         setIsLoaded(true);
+         setAppIsReady(true);
       });
    }, []);
 
-   if (!isLoaded) return;
+   if (!appIsReady) return;
 
    return (
       <Provider store={store}>
