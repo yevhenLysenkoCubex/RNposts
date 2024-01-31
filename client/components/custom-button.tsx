@@ -1,6 +1,8 @@
 import React from 'react';
 import { Pressable, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
+import { Fonts } from '../enums';
+
 type CustomButtonProps = {
    children: React.ReactNode;
    onPress: () => void;
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
    btnText: {
       textAlign: 'center',
       textTransform: 'uppercase',
-      fontFamily: 'Montserrat-medium',
+      fontFamily: Fonts.MONTSERRAT_MEDIUM,
    },
    pressed: {
       opacity: 0.75,

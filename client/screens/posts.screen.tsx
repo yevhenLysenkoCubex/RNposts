@@ -4,13 +4,10 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { asyncDeletePost, fetchPosts, postsState } from '../store/posts/posts.slice';
 import { PostCard } from '../components/post-card';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../types';
+import type { PostsScreenProps } from '../types';
 import { Screens } from '../enums';
 import { CustomButton } from '../components/custom-button';
 import { CustomText } from '../components/custom-text';
-
-type PostsScreenProps = NativeStackScreenProps<RootStackParamList, Screens.POSTS>;
 
 export default function PostsScreen({ navigation }: PostsScreenProps) {
    const dispatch = useAppDispatch();
@@ -51,9 +48,7 @@ export default function PostsScreen({ navigation }: PostsScreenProps) {
                showsVerticalScrollIndicator={false}
                ListFooterComponent={<CustomButton onPress={handleCreatePost}>Create Post</CustomButton>}
                ListHeaderComponent={
-                  <CustomText style={{ textTransform: 'uppercase', textAlign: 'center' }}>
-                     Click on post title to see more
-                  </CustomText>
+                  <CustomText style={styles.listHeaderText}>Click on post title to see more</CustomText>
                }
                renderItem={({ item }) => (
                   <PostCard
@@ -80,5 +75,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       gap: 16,
+   },
+   listHeaderText: {
+      textTransform: 'uppercase',
+      textAlign: 'center',
    },
 });

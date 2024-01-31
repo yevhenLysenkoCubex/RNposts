@@ -1,29 +1,27 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { useAppDispatch } from '../store/hooks';
 import { CustomButton } from '../components/custom-button';
-import type { PostTypes, RootStackParamList } from '../types';
-import { Screens } from '../enums';
+import type { ManagePostScreenProps, PostTypes } from '../types';
 import { asyncCreatePost, fetchSinglePost, asyncEditPost } from '../store/posts/posts.slice';
 import { CustomText } from '../components/custom-text';
 
-type ManagePostScreenProps = NativeStackScreenProps<RootStackParamList, Screens.MANAGE_POST>;
+const INITIALSTATE = {
+   title: '',
+   body: '',
+   id: '',
+};
 
 export default function ManagePostScreen({ navigation, route }: ManagePostScreenProps) {
    const dispatch = useAppDispatch();
 
    const [hasChanges, setHasChanges] = useState(false);
-   const [state, setState] = useState({
-      title: '',
-      body: '',
-      id: '',
-   });
+   const [state, setState] = useState(INITIALSTATE);
 
    const handleBack = () => {
       navigation.goBack();
-      setState({ title: '', body: '', id: '' });
+      setState(INITIALSTATE);
    };
 
    const handlePost = async () => {

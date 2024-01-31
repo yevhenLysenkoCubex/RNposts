@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, TextProps } from 'react-native';
+import { Fonts } from '../enums';
 
 type CustomTextProps = TextProps & {
    custom?: string;
@@ -15,6 +16,6 @@ export const CustomText = ({ children, style, ...rest }: CustomTextProps) => {
 
 const styles = StyleSheet.create({
    default: {
-      fontFamily: 'Montserrat-light',
+      fontFamily: Fonts.MONTSERRAT_LIGHT,
    },
 });
