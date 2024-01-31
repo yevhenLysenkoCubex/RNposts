@@ -1,10 +1,8 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { View, StyleSheet, TextInput, SectionList } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { Screens } from '../enums';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import type { CommentTypes, RootStackParamList } from '../types';
+import type { CommentTypes, SinglePostScreenProps } from '../types';
 import {
    commentsState,
    fetchComments,
@@ -15,8 +13,6 @@ import {
 import { CustomButton } from '../components/custom-button';
 import { CommentCard } from '../components/comment-card';
 import { CustomText } from '../components/custom-text';
-
-type SinglePostScreenProps = NativeStackScreenProps<RootStackParamList, Screens.SINGLE_POST>;
 
 export default function SinglePostScreen({ route, navigation }: SinglePostScreenProps) {
    const dispatch = useAppDispatch();
